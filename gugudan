@@ -1,0 +1,17 @@
+Option Explicit
+
+Sub test()
+    Dim dan As Integer
+    Dim i As Integer, j As Integer
+    
+    For dan = 2 To 9
+        For i = 1 To 9
+            ActiveCell.Offset(i, 0).Value = dan & " * " & i & "=" & dan * i
+        Next i
+        ActiveCell.Offset(0, 0).Value = dan & " 단"
+        ActiveCell.Offset(0, 1).Select
+    Next dan
+End Sub
+Sub test1()
+    Cells.ClearContents
+End Sub
