@@ -1,0 +1,17 @@
+Option Explicit
+
+Sub test()
+    Dim i As Integer, j As Integer, str As String
+    Dim n As Integer
+    n = InputBox("몇 줄?", "줄 수 입력!!")
+    For i = 1 To n
+        For j = n To i Step -1
+            str = str + " "
+        Next j
+        For j = 1 To i
+            str = str + " *"
+        Next j
+        ActiveCell.Offset(i, 0).Value = str
+        str = ""
+    Next i
+End Sub
