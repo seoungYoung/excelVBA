@@ -12,6 +12,28 @@ Sub test()
         ActiveCell.Offset(0, 1).Select
     Next dan
 End Sub
+
 Sub test1()
     Cells.ClearContents
+End Sub
+
+Sub InvertedTriangle()
+   Dim answer As Integer
+    Dim i As Integer
+    Dim j As Integer
+    Dim str As String
+    
+    answer = InputBox("몇 줄?", "확인")
+    
+    For i = 1 To answer
+        str = ""
+        For j = 0 To i - 1
+            str = str & " "
+        Next j
+        For j = 1 To answer - i + 1
+            str = str & " *"
+        Next j
+        
+        ActiveCell.Offset(i, 0).Value = str
+    Next i
 End Sub
