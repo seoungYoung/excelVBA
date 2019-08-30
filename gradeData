@@ -1,1 +1,55 @@
-aa
+option explicit
+
+Sub clearGradeData()
+    Range("b5:i19").ClearContents
+End Sub
+
+Sub makeRandomGrade()
+    Dim rng As Range
+    For Each rng In Range("b5:f19")
+        rng.Value = Int(Rnd() * 100)
+    Next rng
+End Sub
+
+
+Sub makeSum()
+    Dim i As Integer
+    Dim j As Integer
+    Dim mySum As Integer
+    Range("g4").Select
+    For i = 1 To 15
+        mySum = 0
+        For j = -1 To -5 Step -1
+            mySum = mySum + ActiveCell.Offset(i, j).Value
+        Next j
+        ActiveCell.Offset(i, 0).Value = mySum
+    Next i
+End Sub
+
+
+Sub makeAverage()
+    '=AVERAGE(B5:F5)
+    Dim i As Integer
+    Range("h5").Value = WorksheetFunction.Average(Range("b5:f5"))
+    Range("h5").Select
+    Dim rowNumber As Integer
+    rowNumber = 5
+    For i = 0 To 14
+        ActiveCell.Offset(i, 0).Value = WorksheetFunction.Average(Range("b" & rowNumber & ":f" & rowNumber))
+        rowNumber = rowNumber + 1
+    Next i
+End Sub
+
+
+Sub makeRank()
+    ' =RANK(G5,$G$5:$G$19)
+    Dim i As Integer
+    Dim rowNumber As Integer
+    rowNumber = 5
+    Range("i5").Select
+    Range("i5").Value = WorksheetFunction.Rank(Range("g5"), Range("$G$5:$G$19"))
+    For i = 0 To 14
+        ActiveCell.Offset(i, 0).Value = WorksheetFunction.Rank(Range("g" & rowNumber), Range("$G$5:$G$19"))
+        rowNumber = rowNumber + 1
+    Next i
+End Sub
