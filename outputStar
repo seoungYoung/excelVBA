@@ -1,6 +1,6 @@
 Option Explicit
 
-Sub test()
+Sub triangle()
     Dim i As Integer, j As Integer, str As String
     Dim n As Integer
     n = InputBox("몇 줄?", "줄 수 입력!!")
@@ -16,7 +16,7 @@ Sub test()
     Next i
 End Sub
 
-Sub InvertedTriangle()
+Sub invertedTriangle()
    Dim answer As Integer
     Dim i As Integer
     Dim j As Integer
