@@ -1,0 +1,13 @@
+' 현재 셀을 기준으로 짝수 단만 출력.
+
+Sub test()
+    Dim i As Integer
+    Dim j As Integer
+    
+    For i = 2 To 9 Step 2
+        For j = 1 To 9 Step 1
+            ActiveCell.Offset(j, 0).Value = i & "*" & j & "=" & i * j
+        Next j
+        ActiveCell.Offset(0, 1).Select
+    Next i
+End Sub
