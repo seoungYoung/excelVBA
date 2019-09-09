@@ -1,0 +1,42 @@
+Option Explicit
+' test0 과 test1 은 같은 결과
+' String 변수의 활용
+Sub test0()
+    Dim i As Integer
+    
+    For i = 1 To 10 Step 1
+        ActiveCell.Offset(i, 0).Value = 2 & "*" & i & "=" & 2 * i
+    Next i
+End Sub
+Sub test1()
+    Dim i As Integer
+    Dim str As String
+    
+    For i = 1 To 10 Step 1
+        str = 2 & "*" & i & "=" & 2 * i
+        ActiveCell.Offset(i, 0).Value = str
+    Next i
+End Sub
+' test2 와 test3, test4 을 비교하세요. range 타입의 변수를 이용해 처리함.
+Sub test2()
+    Dim i As Integer
+    i = 100
+    ActiveCell.Value = i
+End Sub
+Sub test3()
+    Dim i As Integer
+    Dim rng As Range
+    Set rng = Range("b2")
+    i = 200
+    rng.Value = i
+End Sub
+Sub test4()
+    ' for each 문의 활용
+    ' 일정부분 영역을 블록으로 잡아서 실행
+    Dim i As Integer
+    Dim rng As Range
+    
+    For Each rng In Selection
+        rng.Value = Int(Rnd() * 100)
+    Next rng
+End Sub
